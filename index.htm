@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="home">
+        <div class="header">
+            <div class="menu" onclick="handleMenuBar()">
+                <span>MENU</span>
+                <div class="menuIconWrapper">
+                    <div class="menuIcon"></div>
+                </div>
+            </div>
+            <div class="logo">
+                <img src="/assets/logo.png" alt="logo" />
+                <span>Cafe Dream</span>
+            </div>
+            <div class="address">
+                <img src="/assets/map.svg" alt="map" />
+                <span>Cidco, Aurangabad 431003</span>
+            </div>
+        </div>
+
+        <div class="navbar">
+            <ul>
+                <li><a href="#home" onclick="removeShow()">Home</a></li>
+                <li><a href="#about" onclick="removeShow()">About Us</a></li>
+                <li><a href="#services" onclick="removeShow()">Services</a></li>
+                <li><a href="#menu" onclick="removeShow()">Menus</a></li>
+                <li><a href="#gallery" onclick="removeShow()">Gallery</a></li>
+                <li><a href="#contact" onclick="removeShow()">Contact</a></li>
+            </ul>
+            <div class="navSocial">
+                <p>FOLLOW US ON INSTAGRAM</p>
+                <div class="navSocialImg">
+                    <img src="/assets/instagram.svg" alt="">
+                </div>
+            </div>
+        </div>
+
+        <div class="homeContents">
+            <h1>Cafe Dream</h1>
+            <div class="row">
+                <span>CAFE</span>&nbsp;|
+                <span>EVENTS</span>&nbsp;|
+                <span>ENJOY</span>
+            </div>
+            <h4>Good Food for Good People</h4>
+        </div>
+
+        <button>FIND OUT MORE</button>
+    </div>
+
+    <div id="about">
+        <div class="left">
+            <span>SHORT ABOUT US</span>
+            <h1>WELCOME</h1>
+            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, totam.</h4>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At repellat nesciunt facere saepe mollitia
+                numquam sed iure voluptatem maxime voluptatum molestias, natus assumenda, vitae eveniet fuga velit!
+                Quia, nostrum perferendis! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio, doloribus.
+            </p>
+            <button>FIND OUT MORE</button>
+        </div>
+
+        <div class="right">
+            <img src="/assets/table.jpg" alt="table">
+            <div class="time">
+                <div class="timeinner">
+                    <h3>HOURS</h3>
+                    <span>MON - FRI : 10AM - 9PM</span>
+                    <span>SAT - SUN : 10AM - 11PM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="services">
+        <span>ALWAYS THE BEST</span>
+        <h1>WHAT WE OFFER</h1>
+        <h4>We Belive Good Food Offers Great Smile</h4>
+        <div class="cards">
+            <div class="card">
+                <img src="/assets/service-1.jpg" alt="">
+                <div class="info">
+                    <div class="innerInfo">
+                        <h3>DELECIOUS</h3>
+                        <h3>FOOD</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/assets/service-2.jpg" alt="">
+                <div class="info">
+                    <div class="innerInfo">
+                        <h3>BIRTHDAY</h3>
+                        <h3>CELEBRATION</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/assets/service-3.jpg" alt="">
+                <div class="info">
+                    <div class="innerInfo">
+                        <h3>COZY</h3>
+                        <h3>INTERIOR</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="menu">
+        <span>WHO WE ARE</span>
+        <div class="navigation">
+            <h1>MENU</h1>
+            <div class="navs">
+                <a href="#">
+                    <h3>SANDWICHES</h3>
+                </a>
+                <a href="#">
+                    <h3>SOFT DRINKS</h3>
+                </a>
+                <a href="#">
+                    <h3>MAINS</h3>
+                </a>
+            </div>
+        </div>
+        <div class="foodsContainer">
+            <div class="foods">
+                <div class="food">
+                    <h3>Bacon & Cheese</h3>
+                    <strong>₹ 40.00</strong>
+                </div>
+                <div class="food">
+                    <h3>Burger</h3>
+                    <strong>₹ 40.00</strong>
+                </div>
+                <div class="food">
+                    <h3>Fresh Salad</h3>
+                    <strong>₹ 40.00</strong>
+                </div>
+                <div class="food">
+                    <h3>Toast</h3>
+                    <strong>₹ 40.00</strong>
+                </div>
+                <div class="food">
+                    <h3>Iced Tea</h3>
+                    <strong>₹ 40.00</strong>
+                </div>
+                <div class="food">
+                    <h3>Milk Tea</h3>
+                    <strong>₹ 40.00</strong>
+                </div>
+            </div>
+            <div class="foods">
+                <div class="food">
+                    <h3>Iced Mocha</h3>
+                    <strong>₹ 40.00</strong>
+                </div>
+                <div class="food">
+                    <h3>Iced Coffee Late</h3>
+                    <strong>₹ 40.00</strong>
+                </div>
+                <div class="food">
+                    <h3>Hand Tossed Salad</h3>
+                    <strong>₹ 40.00</strong>
+                </div>
+                <div class="food">
+                    <h3>Caesar Salad</h3>
+                    <strong>₹ 40.00</strong>
+                </div>
+                <div class="food">
+                    <h3>Loaded Baked Potato</h3>
+                    <strong>₹ 40.00</strong>
+                </div>
+                <div class="food">
+                    <h3>Rosted Vegatables</h3>
+                    <strong>₹ 40.00</strong>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="happyHour">
+        <div class="happyHourInner">
+            <h1>HAPPY HOURS</h1>
+            <span>Daily at 3PM - 5PM</span>
+        </div>
+    </div>
+
+    <div id="gallery">
+        <span>PHOTOSTREAM</span>
+        <h1>GALLERY</h1>
+
+        <div class="images">
+            <div class="image">
+                <img src="/assets/gallery-1.jpg" alt="">
+            </div>
+            <div class="image">
+                <img src="/assets/gallery-2.jpg" alt="">
+            </div>
+            <div class="image">
+                <img src="/assets/gallery-3.jpg" alt="">
+            </div>
+            <div class="image">
+                <img src="/assets/gallery-4.jpg" alt="">
+            </div>
+            <!-- <div class="image">
+                <img src="/assets/gallery-5.jpg" alt="">
+            </div>
+            <div class="image">
+                <img src="/assets/gallery-6.jpg" alt="">
+            </div> -->
+        </div>
+    </div>
+
+    <div id="happyClients">
+        <span>SPREAD LOVE</span>
+        <h1>OUR HAPPY CLIENTS</h1>
+        <div class="feedbacks">
+            <div class="feedback">
+                <img src="/assets/client-1.png" alt="" class="clientImg">
+                <div class="stars">
+                    <img src="/assets/star.svg" alt="">
+                    <img src="/assets/star.svg" alt="">
+                    <img src="/assets/star.svg" alt="">
+                    <img src="/assets/star.svg" alt="">
+                    <img src="/assets/half-star.svg" alt="">
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic provident, consequuntur praesentium sit
+                    vero sint.</p>
+            </div>
+            <div class="feedback">
+                <img src="/assets/client-2.png" alt="" class="clientImg">
+                <div class="stars">
+                    <img src="/assets/star.svg" alt="">
+                    <img src="/assets/star.svg" alt="">
+                    <img src="/assets/star.svg" alt="">
+                    <img src="/assets/star.svg" alt="">
+                    <img src="/assets/half-star.svg" alt="">
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic provident, consequuntur praesentium sit
+                    vero sint.</p>
+            </div>
+            <div class="feedback">
+                <img src="/assets/client-3.png" alt="" class="clientImg">
+                <div class="stars">
+                    <img src="/assets/star.svg" alt="">
+                    <img src="/assets/star.svg" alt="">
+                    <img src="/assets/star.svg" alt="">
+                    <img src="/assets/star.svg" alt="">
+                    <img src="/assets/half-star.svg" alt="">
+                </div>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic provident, consequuntur praesentium sit
+                    vero sint.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="serviceAvailable">
+        <span>ONLINE FOOD ORDERING</span>
+        <h1>AVAILABLE AT</h1>
+        <div class="servicesContainer">
+            <div class="avaibaleAt">
+                <img src="/assets/swiggy.png" alt="">
+                <h3>Swiggy</h3>
+            </div>
+            <div class="avaibaleAt">
+                <img src="/assets/zomato.png" alt="">
+                <h3>Zomato</h3>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact">
+        <span>GET IN TOUCH WITH US</span>
+        <h1>CONTACT US</h1>
+        <div class="infoWrapper">
+            <a href="#">
+                <div class="info">
+                    <img src="/assets/gmail.png" alt="">
+                    <h5>dummyaddress@gmail.com</h5>
+                </div>
+            </a>
+            <a href="#">
+                <div class="info">
+                    <img src="/assets/phone.png" alt="">
+                    <h5>+91 4582563952</h5>
+                </div>
+            </a>
+            <a href="#">
+                <div class="info">
+                    <img src="/assets/placeholder.png" alt="">
+                    <h5>Cidco, Aurangabad. 431003</h5>
+                </div>
+            </a>
+        </div>
+        <div class="map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3752.1615431172486!2d75.36508071474313!3d19.875399486634382!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdba2ed74555555%3A0x6b32bcf9d853089e!2sCidco%20Bus%20Stand%20Aurangabad!5e0!3m2!1sen!2sin!4v1628958498611!5m2!1sen!2sin"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <h3>Cafe Dream © All Rights Reserved.</h3>
+        <h4>Follow Us On Instagram</h4>
+        <span>TO SEE WHAT WE ARE COOKING UP</span>
+        <a href="#">
+            <div class="social">
+                <img src="/assets/instagram.svg" alt="">
+            </div>
+        </a>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
