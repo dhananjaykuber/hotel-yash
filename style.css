@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Spicy+Rice&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Tangerine&display=swap");
 
+@font-face {
+  font-family: "Ethnocentric";
+  src: url("/assets/ethnocentric\ rg.ttf");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -32,23 +37,9 @@ html {
   flex-direction: column;
 }
 
-#home::before {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-  height: 15px;
-  background-image: linear-gradient(
-      45deg,
-      rgb(245, 243, 243) 50%,
-      transparent 50%
-    ),
-    linear-gradient(-45deg, rgb(245, 243, 243) 50%, transparent 50%);
-  background-size: 15px 15px;
-  content: "";
-}
-
 .header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 8px 20px;
   position: fixed;
@@ -58,143 +49,98 @@ html {
   background-color: #00000065;
   backdrop-filter: blur(2px);
   z-index: 2;
+
+  box-shadow: 0px 2px 10px -6px rgba(255, 255, 255, 0.247);
 }
 
-.menu {
-  display: flex;
-  align-items: center;
+.header h2 {
+  color: #fdfdfd;
+  font-size: 19px;
+  font-weight: 300;
   cursor: pointer;
-  width: 40%;
 }
 
-.menu span {
-  color: #fdfdfd;
-  font-weight: 200;
-  background: #0000007a;
-  padding: 8px;
-  font-size: 14px;
-}
-
-.menuIconWrapper {
-  background: #e3c54f;
-  padding: 8px;
-}
-
-.menuIcon {
-  background-image: url("/assets/hamburger.svg");
-  height: 20px;
-  width: 20px;
-}
-
-.logo {
+.header ul {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 20%;
-}
-
-.logo img {
-  height: 35px;
-  width: 35px;
-}
-
-.logo span {
-  color: #fdfdfd;
-  font-weight: 600;
-}
-
-.address {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 40%;
-}
-
-.address img {
-  height: 15px;
-  width: 15px;
-}
-
-.address span {
-  color: #fdfdfd;
-  font-weight: 200;
-  font-size: 13px;
-  margin-left: 5px;
-}
-
-/* Navbar */
-.navbar {
-  background: #0f0f0f;
-  width: 300px;
-  z-index: 1;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: -300px;
-  transition: 0.8s all ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.navbar ul {
   list-style: none;
-  margin-left: 0px;
+  transition: 0.5s all ease-in-out;
 }
 
-.navbar li {
-  margin: 30px;
+.header li {
+  margin: 10px 0px;
+  margin-left: 20px;
   align-items: center;
   text-align: center;
-  width: 100px;
-  padding: 5px;
+  padding: 5px 20px;
   transition: 0.3s ease-in-out;
 }
 
-.navbar li a {
+.header li a {
   color: #fdfdfd;
   text-decoration: none;
   font-size: 16px;
   font-weight: 300;
 }
 
-.navbar li:hover {
+.header li:hover {
   background: #e3c54f;
   border-radius: 2px;
 }
 
-.show {
-  left: 0px;
-}
-
-.navSocial {
-  display: flex;
+/* Hamburger */
+.hamburgerContainer {
+  position: relative;
+  display: none;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  height: 5px;
+  width: 25px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  margin-right: 5px;
 }
 
-.navSocialImg {
-  background: #fdfdfd;
-  width: fit-content;
-  padding: 3px;
-  border-radius: 4px;
-  margin-top: 10px;
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
 }
 
-.navSocial p {
-  color: #e3c54f;
-  font-size: 12px;
-  font-weight: 300;
-  text-align: center;
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
 }
 
-.navSocial img {
-  height: 30px;
-  width: 30px;
-  margin-bottom: -5px;
+.hamburger::before {
+  transform: translateY(-8px);
+}
+
+.hamburger::after {
+  transform: translateY(8px);
+}
+
+.hamburgerContainer.open .hamburger {
+  transform: translateX(-50px);
+  background: transparent;
+  box-shadow: none;
+}
+
+.hamburgerContainer.open .hamburger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+  background: #fff;
+}
+
+.hamburgerContainer.open .hamburger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+  background: #fff;
 }
 
 /* Home contents */
@@ -213,10 +159,37 @@ html {
   margin-top: 20px;
 }
 
-#home h1 {
+.homeContents .headings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.headings .main {
+  display: flex;
+  align-items: baseline;
+}
+
+.headings h1 {
   color: #fdfdfd;
-  font-size: 5rem;
-  font-weight: 500;
+  font-size: 4rem;
+  font-family: "Ethnocentric";
+}
+
+.headings h2 {
+  color: #fdfdfd;
+  font-weight: 200;
+  font-size: 3rem;
+  margin-right: 10px;
+}
+
+.headings h5 {
+  color: #fdfdfd;
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: 8px;
 }
 
 .row {
@@ -234,6 +207,7 @@ html {
   position: absolute;
   bottom: 80px;
   letter-spacing: 0.1cm;
+  cursor: pointer;
 }
 
 /* About */
@@ -244,8 +218,8 @@ html {
 }
 
 .left {
-  width: 70%;
-  padding-right: 100px;
+  /* width: 70%;
+  padding-right: 100px; */
 }
 
 .left span {
@@ -353,49 +327,47 @@ html {
   text-align: center;
 }
 
-#services h4 {
-  font-family: "Autumn";
-  color: #fdfdfd;
-  font-weight: 100;
-  font-size: 13px;
-  text-align: center;
+.facilities {
+  display: flex;
+  margin-top: 20px;
 }
 
-.cards {
+.facilityFourCombo {
   display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
 }
 
-.card {
+.facilityTwoCombo {
   display: flex;
-  justify-content: center;
+}
+
+.facility {
+  background: #fdfdfd;
+  display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-}
-
-.card img {
-  height: 300px;
-  width: 300px;
-  margin: 20px;
-}
-
-.card .info {
-  background: #e3c54f;
-  width: 300px;
-  margin-top: -20px;
+  width: 120px;
+  height: 120px;
+  margin: 10px;
   padding: 10px;
+  border-radius: 4px;
+  transition: 0.3s all ease-in-out;
+  cursor: pointer;
 }
 
-.card .innerInfo {
-  border: 3.5px solid #fdfdfd;
-  padding: 5px 30px;
+.facility:hover {
+  box-shadow: 0px 0px 13px -1px rgba(255, 255, 255, 0.75);
+  transform: scale(1.1);
 }
 
-.innerInfo h3 {
+.facility img {
+  width: 80px;
+  height: auto;
+}
+
+.facility h5 {
+  margin-top: 5px;
   text-align: center;
-  color: #fdfdfd;
-  font-weight: 600;
 }
 
 /* Menu */
@@ -525,6 +497,7 @@ a h3 {
   font-weight: 800;
   font-size: 3rem;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 #gallery span {
@@ -534,22 +507,28 @@ a h3 {
 }
 
 .images {
+  width: 95vw;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 25px;
 }
 
 .image {
-  /* width: 20%; */
-  margin: 20px;
+  width: 25%;
+  margin: 10px;
+  transition: 0.5s all ease-in-out;
+  cursor: pointer;
+}
+
+.image:hover {
+  transform: scale(1.05);
 }
 
 .image img {
-  height: 250px;
-  width: 250px;
-  /* width: 100%;
-  height: auto; */
+  width: 100%;
+  height: auto;
 }
 
 /* Happy Clients */
@@ -567,7 +546,11 @@ a h3 {
   font-weight: 800;
   font-size: 3rem;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 10px;
+}
+
+#happyClients .line {
+  margin-bottom: 40px;
 }
 
 #happyClients span {
@@ -581,7 +564,7 @@ a h3 {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
 }
 
 .feedback {
@@ -595,7 +578,7 @@ a h3 {
   justify-content: center;
   flex-direction: column;
   padding: 15px 10px;
-  margin: 30px;
+  margin: 30px 15px;
   /* margin-top: 50px; --> add this line in media query */
 }
 
@@ -640,6 +623,10 @@ a h3 {
   text-align: center;
 }
 
+#serviceAvailable .line {
+  margin: 20px;
+}
+
 #serviceAvailable span {
   font-weight: 600;
   font-size: 14px;
@@ -654,12 +641,22 @@ a h3 {
   flex-wrap: wrap;
 }
 
+.servicesContainer a {
+  color: #000000;
+  text-decoration: none;
+}
+
 .avaibaleAt {
   margin: 20px 30px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  transition: 0.5s all ease-in-out;
+}
+
+.avaibaleAt:hover {
+  transform: scale(1.05);
 }
 
 .avaibaleAt img {
@@ -699,6 +696,10 @@ a h3 {
   color: #e3c54f;
 }
 
+#contact .line {
+  margin: 20px;
+}
+
 #contact a {
   text-decoration: none;
 }
@@ -727,6 +728,10 @@ a h3 {
   margin-left: 20px;
   font-weight: 600;
   font-size: 16px;
+  color: #000;
+}
+
+.info a {
   color: #000;
 }
 
@@ -786,13 +791,8 @@ footer a {
   text-decoration: none;
 }
 
-@font-face {
-  font-family: "Autumn";
-  src: url("/assets/Autumn\ in\ November.ttf");
-}
-
 /* Media query */
-@media only screen and (max-width: 1184px) {
+@media screen and (max-width: 1184px) {
   .card img {
     height: 250px;
     width: 250px;
@@ -811,43 +811,34 @@ footer a {
   }
 }
 
-@media only screen and (max-width: 820px) {
-  #home,
-  #about,
-  #services,
-  #menu,
-  #happyHour,
-  #gallery,
-  #happyClients,
-  #serviceAvailable,
-  #contact {
-    padding: 50px 10px;
+@media screen and (max-width: 1145px) {
+  .feedback {
+    width: 300px;
   }
-
-  .header .address {
-    display: none;
+  .feedback img {
+    left: 108px;
   }
+}
 
-  .menu {
-    width: 50%;
+@media screen and (max-width: 930px) {
+  .header ul li {
+    padding: 5px 13px;
   }
+}
 
-  .logo {
-    flex-direction: row;
-    width: 50%;
-    justify-content: flex-end;
+@media screen and (max-width: 1000px) {
+  .feedbacks {
+    flex-direction: column;
   }
-
-  .logo span {
-    margin-left: 8px;
-    font-weight: 400;
+  .feedback {
+    width: 60vw;
   }
-
-  #home h1 {
-    text-align: center;
-    font-size: 3rem;
+  .feedback img {
+    left: 25vw;
   }
+}
 
+@media screen and (max-width: 880px) {
   #about {
     flex-direction: column;
   }
@@ -865,15 +856,59 @@ footer a {
     width: 100%;
     margin-top: 30px;
     justify-content: flex-start;
+    margin-left: 0px;
   }
 
   .right img {
-    height: 250px;
-    width: 250px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  #home,
+  #about,
+  #services,
+  #menu,
+  #happyHour,
+  #happyClients,
+  #serviceAvailable,
+  #contact {
+    padding: 50px 10px;
   }
 
-  .right .time {
-    width: 250px;
+  #gallery .image {
+    width: 40%;
+  }
+
+  .hamburgerContainer {
+    display: block;
+    z-index: 1000;
+  }
+
+  .header {
+    padding: 20px;
+  }
+
+  .header ul {
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -100vw;
+    z-index: 100;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+    background: #c9b04b;
+  }
+
+  .main h1 {
+    font-size: 3rem;
+  }
+
+  .main h2 {
+    font-size: 2.5rem;
   }
 
   .navigation {
@@ -895,18 +930,16 @@ footer a {
   }
 
   .feedback {
-    margin: 0;
-    margin-top: 60px;
-    width: 300px;
+    width: 90vw;
+    margin-top: 40px;
   }
 
   .feedback img {
-    left: 108px;
+    left: auto;
   }
 
   #happyClients h1 {
-    margin-bottom: 5px;
-    /* font-size: 2.5rem; */
+    margin-bottom: 30px;
   }
 
   footer {
@@ -915,20 +948,6 @@ footer a {
 
   .navs {
     flex-wrap: wrap;
-  }
-
-  #menu h1 {
-    align-self: flex-start;
-  }
-
-  #menu a {
-    margin-right: 0px;
-    margin: 5px;
-    width: 120px;
-  }
-
-  #menu a h3 {
-    text-align: center;
   }
 
   .foodsContainer {
@@ -953,5 +972,51 @@ footer a {
 
   #happyHour h1 {
     font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .images {
+    width: 98vw;
+  }
+  .image {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .right img {
+    width: 260px;
+    height: auto;
+  }
+
+  .right .time {
+    width: 260px;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .facilities {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 565px) {
+  .facilityFourCombo {
+    flex-direction: column;
+  }
+  .facilityTwoCombo {
+    align-items: center;
+    justify-content: center;
+  }
+  .facility {
+    width: 40%;
+    height: auto;
+  }
+  .facility img {
+    width: 100%;
+    height: auto;
   }
 }
